@@ -9,19 +9,19 @@ number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: "Operations and Management"
+workgroup: "Operations and Management Area Working Group"
 keyword:
  - next generation
  - unicorn
  - AI-native
 venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  group: "Operations and Management Area Working Group"
+  type: "Working Group"
+  mail: "opsawg@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/opsawg/"
+  github: "ana-mp26/yang-state-normalization"
+  latest: "https://ana-mp26.github.io/yang-state-normalization/draft-mendez-opsawg-yang-state-normalization.html"
 
 author:
  -

@@ -1,7 +1,7 @@
 ---
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
-category: info
+title: "Normalized Representation of YANG State Data"
+abbrev: "yang-state-normalization"
+category: std
 
 docname: draft-mendez-opsawg-yang-state-normalization-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
@@ -12,9 +12,9 @@ v: 3
 area: "Operations and Management"
 workgroup: "Operations and Management Area Working Group"
 keyword:
- - next generation
- - unicorn
- - AI-native
+ - normalization
+ - datastore
+ - semantic representation
 venue:
   group: "Operations and Management Area Working Group"
   type: "Working Group"
@@ -24,10 +24,18 @@ venue:
   latest: "https://ana-mp26.github.io/yang-state-normalization/draft-mendez-opsawg-yang-state-normalization.html"
 
 author:
- -
-    fullname: "Ana Méndez"
-    organization: Your Organization Here
-    email: "79088264+ana-mp26@users.noreply.github.com"
+ -  fullname: Ana Méndez
+    organization: Telefonica
+    email: "ana.mendezperez@telefonica.com"
+    
+ -  fullname: Diego López
+    organization: Telefonica
+    email: "diego.r.lopez@telefonica.com"
+
+ -  fullname: Jan Lindblad
+    organization: All For Eco
+    email: "jan.lindblad+ietf@for.eco"
+       
 
 normative:
 
@@ -37,7 +45,10 @@ informative:
 
 --- abstract
 
-TODO Abstract
+This document defines a normalization procedure for YANG state data. The procedure enables semantically equivalent YANG data to produce equivalent normalized representations independently of the serialization format and applicable representation conventions.
+ 
+The normalized representation is intended to support comparison, hashing, integrity verification, provenance, and other procedures
+that require stable identification of equivalent YANG state data.
 
 
 --- middle

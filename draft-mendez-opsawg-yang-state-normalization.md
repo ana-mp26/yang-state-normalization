@@ -27,15 +27,12 @@ author:
  -  fullname: Ana Méndez
     organization: Telefonica
     email: "ana.mendezperez@telefonica.com"
-    
  -  fullname: Diego López
     organization: Telefonica
     email: "diego.r.lopez@telefonica.com"
-
  -  fullname: Jan Lindblad
     organization: All For Eco
     email: "jan.lindblad+ietf@for.eco"
-       
 
 normative:
 

@@ -2,34 +2,45 @@
 
 
 
-WG Working Group                                              Y. N. Here
-Internet-Draft                                    Your Organization Here
-Intended status: Informational                          1 September 2026
-Expires: 5 March 2027
+Operations and Management Area Working Group                   A. Méndez
+Internet-Draft                                                  D. López
+Intended status: Standards Track                              Telefonica
+Expires: 6 March 2027                                        J. Lindblad
+                                                             All For Eco
+                                                        2 September 2026
 
 
-                           TODO - Your title
-                  draft-todo-yourname-protocol-latest
+              Normalized Representation of YANG State Data
+          draft-mendez-opsawg-yang-state-normalization-latest
 
 Abstract
 
-   TODO Abstract
+   This document defines a normalization procedure for YANG state data.
+   The procedure enables semantically equivalent YANG data to produce
+   equivalent normalized representations independently of the
+   serialization format and applicable representation conventions.   The
+   normalized representation is intended to support comparison, hashing,
+   integrity verification, provenance, and other procedures that require
+   stable identification of equivalent YANG state data.
 
 About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
+   The latest revision of this draft can be found at https://ana-
+   mp26.github.io/yang-state-normalization/draft-mendez-opsawg-yang-
+   state-normalization.html.  Status information for this document may
+   be found at https://datatracker.ietf.org/doc/draft-mendez-opsawg-
+   yang-state-normalization/.
 
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   Discussion of this document takes place on the Operations and
+   Management Area Working Group Working Group mailing list
+   (mailto:opsawg@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/opsawg/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/opsawg/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/ana-mp26/yang-state-normalization.
 
 Status of This Memo
 
@@ -46,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 March 2027.
+   This Internet-Draft will expire on 6 March 2027.
 
 Copyright Notice
 
@@ -70,7 +81,7 @@ Table of Contents
    4.  IANA Considerations
    5.  Normative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -107,8 +118,18 @@ Acknowledgments
 
    TODO acknowledge.
 
-Author's Address
+Authors' Addresses
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Ana Méndez
+   Telefonica
+   Email: ana.mendezperez@telefonica.com
+
+
+   Diego López
+   Telefonica
+   Email: diego.r.lopez@telefonica.com
+
+
+   Jan Lindblad
+   All For Eco
+   Email: jan.lindblad+ietf@for.eco

@@ -28,11 +28,11 @@ The normalized representation is intended to support comparison, hashing, integr
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.11.5
+    platformdirs 4.11.7
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.8.2
+    wcwidth 0.8.3
 -->
 <link href="draft-mendez-opsawg-yang-state-normalization.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1052,7 +1052,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Méndez, et al.</td>
-<td class="center">Expires 6 March 2027</td>
+<td class="center">Expires 7 March 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg {
 <dd class="internet-draft">draft-mendez-opsawg-yang-state-normalization-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-09-02" class="published">2 September 2026</time>
+<time datetime="2026-09-03" class="published">3 September 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-03-06">6 March 2027</time></dd>
+<dd class="expires"><time datetime="2027-03-07">7 March 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1131,7 +1131,7 @@ The normalized representation is intended to support comparison, hashing, integr
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 6 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 7 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1162,32 +1162,58 @@ The normalized representation is intended to support comparison, hashing, integr
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-scope" class="internal xref">Scope</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-introduction-2" class="internal xref">Introduction</a></p>
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-scope" class="internal xref">Scope</a></p>
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-yang-state-data" class="internal xref">YANG State Data</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-representation" class="internal xref">Representation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-normalized-representation" class="internal xref">Normalized Representation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4">
+                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="auto internal xref">2.4</a>.  <a href="#name-representation-equivalence" class="internal xref">Representation Equivalence</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5">
+                <p id="section-toc.1-1.2.2.5.1"><a href="#section-2.5" class="auto internal xref">2.5</a>.  <a href="#name-structural-equivalence" class="internal xref">Structural Equivalence</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.6">
+                <p id="section-toc.1-1.2.2.6.1"><a href="#section-2.6" class="auto internal xref">2.6</a>.  <a href="#name-fingerprint" class="internal xref">Fingerprint</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.7">
+                <p id="section-toc.1-1.2.2.7.1"><a href="#section-2.7" class="auto internal xref">2.7</a>.  <a href="#name-serialization-format" class="internal xref">Serialization Format</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.8">
+                <p id="section-toc.1-1.2.2.8.1"><a href="#section-2.8" class="auto internal xref">2.8</a>.  <a href="#name-schema-independent-normaliz" class="internal xref">Schema-Independent Normalization</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.9">
+                <p id="section-toc.1-1.2.2.9.1"><a href="#section-2.9" class="auto internal xref">2.9</a>.  <a href="#name-semantic-equivalence" class="internal xref">Semantic Equivalence</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1197,63 +1223,130 @@ The normalized representation is intended to support comparison, hashing, integr
 <section id="section-1">
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
-    </h2>
-</section>
-</div>
-<div id="introduction">
-<section id="section-2">
-      <h2 id="name-introduction-2">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-introduction-2" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-2-1">YANG is widely used to model configuration data, operational state, notifications, and other information exchanged between network management systems.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">Data modeled using YANG can be represented through different serialization formats, including XML, JSON, and CBOR. Furthermore, equivalent YANG-modeled information may be serialized differently by distinct implementations due to representation-specific conventions, ordering choices, or encoding mechanisms.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">These differences make it difficult to determine whether two representations convey the same information. As a result, operations such as datastore comparison, data deduplication,fingerprint generation, integrity verification, provenance processing, and message-broker compaction often depend on representation-specific artifacts rather than on the underlying information itself.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">Existing normalization and canonicalization mechanisms operate at the serialization level. For example, XML, JSON, and CBOR provide independent procedures for producing deterministic encodings of individual documents. However, these mechanisms do not address the broader problem of obtaining a common representation across different serialization formats.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">This document defines a normalization procedure for YANG state data that produces a deterministic representation independent of the original serialization format. The procedure enables equivalent YANG-modeled information to converge into the same normalized representation, providing a stable basis for comparison, fingerprint generation, integrity verification, and other operational uses.<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6">This version defines a schema-independent normalization profile. The procedure does not require access to the corresponding YANG schema and assumes that sibling ordering is not semantically significant.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-1-1">YANG is widely used to model configuration data, operational state, notifications, and other information exchanged between network management systems.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">Data modeled using YANG can be represented through different serialization formats, including XML, JSON, and CBOR. Furthermore, equivalent YANG-modeled information may be serialized differently by distinct implementations due to representation-specific conventions, ordering choices, or encoding mechanisms.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">These differences make it difficult to determine whether two representations convey the same information. As a result, operations such as datastore comparison, data deduplication,fingerprint generation, integrity verification, provenance processing, and message-broker compaction often depend on representation-specific artifacts rather than on the underlying information itself.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">Existing normalization and canonicalization mechanisms operate at the serialization level. For example, XML, JSON, and CBOR provide independent procedures for producing deterministic encodings of individual documents. However, these mechanisms do not address the broader problem of obtaining a common representation across different serialization formats.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">This document defines a normalization procedure for YANG state data that produces a deterministic representation independent of the original serialization format. The procedure enables equivalent YANG-modeled information to converge into the same normalized representation, providing a stable basis for comparison, fingerprint generation, integrity verification, and other operational uses.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">This version defines a schema-independent normalization profile. The procedure does not require access to the corresponding YANG schema and assumes that sibling ordering is not semantically significant.<a href="#section-1-6" class="pilcrow">¶</a></p>
 <div id="scope">
-<section id="section-2.1">
+<section id="section-1.1">
         <h3 id="name-scope">
-<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
         </h3>
-<p id="section-2.1-1">This document focuses on representation equivalence of YANG-modeled data.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.1-2">The procedure defined in this document is intended to identify when different serialized representations convey equivalent information.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
-<p id="section-2.1-3">This document does not define a complete semantic normalization of YANG datastore contents. Schema-specific concepts such as default values, identityref resolution, leafref resolution, and ordered-by-user semantics are outside the scope of this version and may be addressed by future work or versions.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
+<p id="section-1.1-1">This document focuses on representation equivalence of YANG-modeled data.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">The procedure defined in this document is intended to identify when different serialized representations convey equivalent information.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">This document does not define a complete semantic normalization of YANG datastore contents. Schema-specific concepts such as default values, identityref resolution, leafref resolution, and ordered-by-user semantics are outside the scope of this version and may be addressed by future work or versions.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="conventions-and-definitions">
-<section id="section-3">
+<section id="section-2">
       <h2 id="name-conventions-and-definitions">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
       </h2>
-<p id="section-3-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
+<p id="section-2-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
-appear in all capitals, as shown here.<a href="#section-3-1" class="pilcrow">¶</a></p>
+appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<div id="yang-state-data">
+<section id="section-2.1">
+        <h3 id="name-yang-state-data">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-yang-state-data" class="section-name selfRef">YANG State Data</a>
+        </h3>
+<p id="section-2.1-1">Information modeled using YANG and represented in a serialization format such as XML, JSON, or CBOR.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="representation">
+<section id="section-2.2">
+        <h3 id="name-representation">
+<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-representation" class="section-name selfRef">Representation</a>
+        </h3>
+<p id="section-2.2-1">A concrete serialized encoding of YANG state data.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-2">Examples include XML, JSON, and CBOR encodings conveying the same underlying information.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="normalized-representation">
+<section id="section-2.3">
+        <h3 id="name-normalized-representation">
+<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-normalized-representation" class="section-name selfRef">Normalized Representation</a>
+        </h3>
+<p id="section-2.3-1">A deterministic representation generated by the normalization procedure defined in this document.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="representation-equivalence">
+<section id="section-2.4">
+        <h3 id="name-representation-equivalence">
+<a href="#section-2.4" class="section-number selfRef">2.4. </a><a href="#name-representation-equivalence" class="section-name selfRef">Representation Equivalence</a>
+        </h3>
+<p id="section-2.4-1">Two representations are representation-equivalent when they produce identical normalized representations.<a href="#section-2.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="structural-equivalence">
+<section id="section-2.5">
+        <h3 id="name-structural-equivalence">
+<a href="#section-2.5" class="section-number selfRef">2.5. </a><a href="#name-structural-equivalence" class="section-name selfRef">Structural Equivalence</a>
+        </h3>
+<p id="section-2.5-1">The property whereby two representations convey the same observable structure and values after normalization.<a href="#section-2.5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="fingerprint">
+<section id="section-2.6">
+        <h3 id="name-fingerprint">
+<a href="#section-2.6" class="section-number selfRef">2.6. </a><a href="#name-fingerprint" class="section-name selfRef">Fingerprint</a>
+        </h3>
+<p id="section-2.6-1">A cryptographic digest calculated from a normalized representation.<a href="#section-2.6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="serialization-format">
+<section id="section-2.7">
+        <h3 id="name-serialization-format">
+<a href="#section-2.7" class="section-number selfRef">2.7. </a><a href="#name-serialization-format" class="section-name selfRef">Serialization Format</a>
+        </h3>
+<p id="section-2.7-1">The concrete encoding format used to represent YANG state data, including XML, JSON, and CBOR.<a href="#section-2.7-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="schema-independent-normalization">
+<section id="section-2.8">
+        <h3 id="name-schema-independent-normaliz">
+<a href="#section-2.8" class="section-number selfRef">2.8. </a><a href="#name-schema-independent-normaliz" class="section-name selfRef">Schema-Independent Normalization</a>
+        </h3>
+<p id="section-2.8-1">A normalization procedure that does not require access to the corresponding YANG schema during processing.<a href="#section-2.8-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="semantic-equivalence">
+<section id="section-2.9">
+        <h3 id="name-semantic-equivalence">
+<a href="#section-2.9" class="section-number selfRef">2.9. </a><a href="#name-semantic-equivalence" class="section-name selfRef">Semantic Equivalence</a>
+        </h3>
+<p id="section-2.9-1">The property whereby two representations correspond to the same YANG state after considering allschema-dependent semantics.<a href="#section-2.9-1" class="pilcrow">¶</a></p>
+<p id="section-2.9-2">Semantic equivalence is outside the scope of this document.<a href="#section-2.9-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="security">
-<section id="section-4">
+<section id="section-3">
       <h2 id="name-security-considerations">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-4-1">TODO Security<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">TODO Security<a href="#section-3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana">
-<section id="section-5">
+<section id="section-4">
       <h2 id="name-iana-considerations">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-5-1">This document has no IANA actions.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">This document has no IANA actions.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-normative-references">
-<section id="section-6">
+<section id="section-5">
       <h2 id="name-normative-references">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>

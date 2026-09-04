@@ -81,9 +81,15 @@ Table of Contents
    1.  Introduction
      1.1.  Scope
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   3.  Problem Statement
+     3.1.  Serialization Differences
+     3.2.  Ordering Differences
+     3.3.  Operational Use Cases
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -101,7 +107,7 @@ Table of Contents
 
    These differences make it difficult to determine whether two
    representations convey the same information.  As a result, operations
-   such as datastore comparison, data deduplication,fingerprint
+   such as datastore comparison, data deduplication, fingerprint
    generation, integrity verification, provenance processing, and
    message-broker compaction often depend on representation-specific
    artifacts rather than on the underlying information itself.
@@ -180,15 +186,77 @@ Table of Contents
 
    Semantic equivalence is outside the scope of this document.
 
-3.  Security Considerations
+3.  Problem Statement
+
+   YANG state data can be represented using multiple serialization
+   formats, including XML, JSON, and CBOR.
+
+   Existing normalization and canonicalization mechanisms provide
+   deterministic representations within a specific serialization format.
+   Examples include XML canonicalization, the JSON Canonicalization
+   Scheme (JCS), and deterministic CBOR encoding.
+
+   These mechanisms ensure that a given representation can be
+   transformed into a deterministic byte sequence.  However, they do not
+   provide a common representation across different serialization
+   formats, nor do they address representation variations that may arise
+   from implementation-specific choices.
+
+   As a consequence, semantically equivalent YANG-modeled information
+   may produce different serialized representations and therefore
+   different fingerprints, hashes, or signatures.
+
+   This limitation affects multiple operational scenarios, including
+   datastore comparison, provenance verification, message broker topic
+   compaction, data synchronization, and content deduplication.
+
+   The objective of this document is to define a normalization procedure
+   capable of producing a stable representation of YANG state data
+   independently of the original serialization format.
+
+3.1.  Serialization Differences
+
+   YANG state data can be represented using different serialization
+   formats, including XML, JSON, and CBOR.
+
+   Existing canonicalization mechanisms operate within a specific
+   serialization format and provide deterministic representations of
+   individual documents.  Examples include XML Canonicalization (XML-
+   C14N), the JSON Canonicalization Scheme (JCS) [RFC8785], and the
+   deterministic encoding rules defined for CBOR [RFC8949].
+
+   These mechanisms ensure that a given representation can be
+   transformed into a deterministic byte sequence.  However, these
+   mechanisms do not provide a common representation across different
+   serialization formats.
+
+   For example, the same YANG state data may be represented using XML,
+   JSON, or CBOR while conveying equivalent information.  Despite this
+   equivalence, the resulting representations differ structurally and
+   produce different byte sequences, hashes, and signatures.
+
+   Consequently, direct comparison of serialized data cannot reliably
+   determine whether two representations convey the same information.
+
+   A normalization procedure operating above the serialization layer is
+   therefore required to enable representation-independent comparison of
+   YANG state data.
+
+3.2.  Ordering Differences
+
+3.3.  Operational Use Cases
+
+4.  Security Considerations
 
    TODO Security
 
-4.  IANA Considerations
+5.  IANA Considerations
 
    This document has no IANA actions.
 
-5.  Normative References
+6.  References
+
+6.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -198,6 +266,12 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+6.2.  Informative References
+
+   [RFC8785]  "JSON Canonicalization Scheme (JCS)", n.d..
+
+   [RFC8949]  "Concise Binary Object Representation (CBOR)", n.d..
 
 Acknowledgments
 

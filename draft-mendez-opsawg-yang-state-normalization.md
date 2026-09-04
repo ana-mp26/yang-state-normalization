@@ -39,7 +39,6 @@ normative:
 informative:
  RFC8785:
   title: JSON Canonicalization Scheme (JCS)
-  
  RFC8949:
   title: Concise Binary Object Representation (CBOR)
 

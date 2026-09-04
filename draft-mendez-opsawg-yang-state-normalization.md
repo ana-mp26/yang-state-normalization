@@ -37,6 +37,11 @@ author:
 normative:
 
 informative:
+ RFC8785:
+  title: JSON Canonicalization Scheme (JCS)
+  
+ RFC8949:
+  title: Concise Binary Object Representation (CBOR)
 
 ...
 
@@ -57,7 +62,7 @@ YANG is widely used to model configuration data, operational state, notification
 
 Data modeled using YANG can be represented through different serialization formats, including XML, JSON, and CBOR. Furthermore, equivalent YANG-modeled information may be serialized differently by distinct implementations due to representation-specific conventions, ordering choices, or encoding mechanisms.
 
-These differences make it difficult to determine whether two representations convey the same information. As a result, operations such as datastore comparison, data deduplication,fingerprint generation, integrity verification, provenance processing, and message-broker compaction often depend on representation-specific artifacts rather than on the underlying information itself.
+These differences make it difficult to determine whether two representations convey the same information. As a result, operations such as datastore comparison, data deduplication, fingerprint generation, integrity verification, provenance processing, and message-broker compaction often depend on representation-specific artifacts rather than on the underlying information itself.
 
 Existing normalization and canonicalization mechanisms operate at the serialization level. For example, XML, JSON, and CBOR provide independent procedures for producing deterministic encodings of individual documents. However, these mechanisms do not address the broader problem of obtaining a common representation across different serialization formats.
 
@@ -97,6 +102,40 @@ This document does not define a complete semantic normalization of YANG datastor
 * Semantic Equivalence: The property whereby two representations correspond to the same YANG state after considering allschema-dependent semantics.
 
 Semantic equivalence is outside the scope of this document.
+
+# Problem Statement
+
+YANG state data can be represented using multiple serialization formats, including XML, JSON, and CBOR.
+
+Existing normalization and canonicalization mechanisms provide deterministic representations within a specific serialization format. Examples include XML canonicalization, the JSON Canonicalization Scheme (JCS), and deterministic CBOR encoding.
+
+These mechanisms ensure that a given representation can be transformed into a deterministic byte sequence. However, they do not provide a common representation across different serialization formats, nor do they address representation variations that may arise from implementation-specific choices.
+
+As a consequence, semantically equivalent YANG-modeled information may produce different serialized representations and therefore different fingerprints, hashes, or signatures.
+
+This limitation affects multiple operational scenarios, including datastore comparison, provenance verification, message broker topic compaction, data synchronization, and content deduplication.
+
+The objective of this document is to define a normalization procedure capable of producing a stable representation of YANG state data independently of the original serialization format.
+
+## Serialization Differences
+
+
+YANG state data can be represented using different serialization formats, including XML, JSON, and CBOR.
+
+Existing canonicalization mechanisms operate within a specific serialization format and provide deterministic representations of individual documents. Examples include XML Canonicalization (XML-C14N), the JSON Canonicalization Scheme (JCS) {{RFC8785}}, and the deterministic encoding rules defined for CBOR {{RFC8949}}.
+
+These mechanisms ensure that a given representation can be transformed into a deterministic byte sequence. However, these mechanisms do not provide a common representation across different serialization formats.
+
+For example, the same YANG state data may be represented using XML, JSON, or CBOR while conveying equivalent information. Despite this equivalence, the resulting representations differ structurally and produce different byte sequences, hashes, and signatures.
+
+Consequently, direct comparison of serialized data cannot reliably determine whether two representations convey the same information.
+
+A normalization procedure operating above the serialization layer is therefore required to enable representation-independent comparison of YANG state data.
+
+## Ordering Differences
+
+## Operational Use Cases
+
 
 # Security Considerations {#security}
 

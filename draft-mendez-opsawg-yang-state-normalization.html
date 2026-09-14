@@ -1186,27 +1186,30 @@ The normalized representation is intended to support comparison, hashing, integr
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-normalization-procedure" class="internal xref">Normalization Procedure</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-references" class="internal xref">References</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1337,36 +1340,119 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <section id="section-3.3">
         <h3 id="name-operational-use-cases">
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-operational-use-cases" class="section-name selfRef">Operational Use Cases</a>
-      </h3>
+        </h3>
+<p id="section-3.3-1">The absence of a representation-independent form of YANG state data affects several operational scenarios, including:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3-2.1">
+            <p id="section-3.3-2.1.1"><strong>Datastore State Comparison:</strong>  Network management systems frequently compare datastore snapshots obtained from different devices, controllers, or processing stages. Equivalent YANG state data represented through different serialization formats or ordering conventions may appear different when compared directly, despite conveying the same information.<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-2.2">
+            <p id="section-3.3-2.2.1"><strong>Message Broker Applications:</strong> YANG-modeled information is increasingly exchanged through message broker infrastructures and data distribution systems. Stable identification of equivalent information can support operations such as message deduplication, topic compaction, change detection, and content synchronization.<a href="#section-3.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-2.3">
+            <p id="section-3.3-2.3.1"><strong>Data Synchronization and Replication:</strong> Operational environments frequently exchange YANG state data between multiple systems. A deterministic normalized representation can simplify state comparison, synchronization procedures, and consistency verification across distributed environments.<a href="#section-3.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-2.4">
+            <p id="section-3.3-2.4.1"><strong>Data Deduplication:</strong> Storage and processing systems may benefit from the ability to identify equivalent information independently of the original representation. A normalized representation provides a stable basis for content identification and deduplication.<a href="#section-3.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-2.5">
+            <p id="section-3.3-2.5.1"><strong>Provenance and Integrity Verification:</strong> Where stable and deterministic representations are required to generate reproducible fingerprints, hashes, and signatures, such as the previous use cases mentioned.<a href="#section-3.3-2.5.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
+</div>
+</section>
+</div>
+<div id="normalization-procedure">
+<section id="section-4">
+      <h2 id="name-normalization-procedure">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-normalization-procedure" class="section-name selfRef">Normalization Procedure</a>
+      </h2>
+<p id="section-4-1">The normalization procedure operates on YANG state data independently of its original serialization format.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">The procedure transforms XML, JSON, or CBOR representations into a common normalized representation through a recursive processing algorithm.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3">At a high level, the procedure consists of:<a href="#section-4-3" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-4-4">
+<li id="section-4-4.1">
+          <p id="section-4-4.1.1">Parsing the input representation.<a href="#section-4-4.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="section-4-4.2">
+          <p id="section-4-4.2.1">Constructing an internal hierarchical representation composed of node identifiers, values, and descendants.<a href="#section-4-4.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="section-4-4.3">
+          <p id="section-4-4.3.1">Normalizing identifiers and values.<a href="#section-4-4.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="section-4-4.4">
+          <p id="section-4-4.4.1">Recursively normalizing descendant nodes.<a href="#section-4-4.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="section-4-4.5">
+          <p id="section-4-4.5.1">Eliminating non-semantic ordering differences.<a href="#section-4-4.5.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="section-4-4.6">
+          <p id="section-4-4.6.1">Generating a deterministic normalized representation.<a href="#section-4-4.6.1" class="pilcrow">¶</a></p>
+</li>
+      </ol>
+<p id="section-4-5">The same YANG state information <span class="bcp14">SHOULD</span> produce the same normalized representation regardless of the original serialization format.<a href="#section-4-5" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4-6">
+<pre>
+XML  ----\
+          \
+JSON ----- &gt; Parse Input
+          /
+CBOR ----/
+
+              |
+              v
+
+    Common Representation
+
+              |
+              v
+
+   Recursive Normalization
+
+              |
+              v
+
+   Deterministic Ordering
+
+              |
+              v
+
+  Normalized Representation
+
+              |
+              v
+
+ Comparison / Fingerprinting
+</pre><a href="#section-4-6" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="security">
-<section id="section-4">
+<section id="section-5">
       <h2 id="name-security-considerations">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-4-1">TODO Security<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">TODO Security<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana">
-<section id="section-5">
+<section id="section-6">
       <h2 id="name-iana-considerations">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-5-1">This document has no IANA actions.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">This document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-6">
+<section id="section-7">
       <h2 id="name-references">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-6.1">
+<section id="section-7.1">
         <h3 id="name-normative-references">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1381,9 +1467,9 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-6.2">
+<section id="section-7.2">
         <h3 id="name-informative-references">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC8785">[RFC8785]</dt>

@@ -41,6 +41,10 @@ informative:
   title: JSON Canonicalization Scheme (JCS)
  RFC8949:
   title: Concise Binary Object Representation (CBOR)
+ I-D.ietf-opsawg-yang-provenance:
+  target: https://datatracker.ietf.org/doc/draft-ietf-opsawg-yang-provenance/
+ I-D.ietf-nmop-yang-message-broker-message-key:
+  target: https://datatracker.ietf.org/doc/draft-ietf-nmop-yang-message-broker-message-key/
 
 ...
 
@@ -279,9 +283,17 @@ The following aspects are outside the scope of this version:
 
 Future versions may define schema-aware normalization profiles that address these aspects.
 
-# Security Considerations {#security}
+# Relationship to Existing Work
 
-# Security Considerations
+The normalization procedure defined in this document ismintended to complement existing efforts related to themprocessing, identification, and distribution of YANG-modeled information.
+
+The YANG provenance mechanisms defined in [draft-ietf-opsawg-yang-provenance] operate on serialized representations of YANG data and can benefit from a stable, representation-independent normalization procedure capable of producing equivalent representations across different serialization formats.
+
+Similarly, work related to message broker identification and key generation for YANG-modeled information, such as [draft-ietf-nmop-yang-message-broker-message-key], may benefit from a normalization procedure that produces stable representations for equivalent information independently of their original encoding.
+
+This document does not modify or replace such mechanisms. Instead, it provides a potential foundation that can be used by higher-level procedures requiring stable identification of equivalent YANG state data.
+
+# Security Considerations {#security}
 
 The normalization procedure defined in this document is intended to provide a deterministic representation of YANG state data. It does not, by itself, provide integrity, authenticity, confidentiality, or provenance guarantees.
 

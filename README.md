@@ -1,8 +1,8 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# TODO - Your title
+# Normalized Representation of YANG State Data
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the individual Internet-Draft, "Normalized Representation of YANG State Data".
 
 * [Editor's Copy](https://ana-mp26.github.io/yang-state-normalization/#go.draft-mendez-opsawg-yang-state-normalization.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-mendez-opsawg-yang-state-normalization)

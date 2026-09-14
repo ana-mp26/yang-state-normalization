@@ -7,7 +7,7 @@ docname: draft-mendez-opsawg-yang-state-normalization-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
-consensus: true
+consensus: false
 v: 3
 area: "Operations and Management"
 workgroup: "Operations and Management Area Working Group"
@@ -46,11 +46,7 @@ informative:
 
 --- abstract
 
-This document defines a normalization procedure for YANG state data. The procedure enables semantically equivalent YANG data to produce equivalent normalized representations independently of the serialization format and applicable representation conventions.
- 
-The normalized representation is intended to support comparison, hashing, integrity verification, provenance, and other procedures that require stable identification of equivalent YANG state data.
-
-This version defines a schema-independent normalization profile and assumes that sibling ordering is not semantically significant.
+This document defines a normalization procedure for YANG state data. The procedure enables tructurally equivalent YANG state data to produce equivalent normalized representations independently of the serialization format and applicable representation conventions. The normalized representation is intended to support comparison, hashing, integrity verification, provenance, and other procedures that require stable identification of equivalent YANG state data. This version defines a schema-independent normalization profile and assumes that sibling ordering is not semantically significant.
 
 
 --- middle
@@ -98,7 +94,7 @@ This document does not define a complete semantic normalization of YANG datastor
 
 * Schema-Independent Normalization: A normalization procedure that does not require access to the corresponding YANG schema during processing.
 
-* Semantic Equivalence: The property whereby two representations correspond to the same YANG state after considering allschema-dependent semantics.
+* Semantic Equivalence: The property whereby two representations correspond to the same YANG state after considering all schema-dependent semantics.
 
 Semantic equivalence is outside the scope of this document.
 
@@ -232,9 +228,67 @@ CBOR ----/
  Comparison / Fingerprinting
 ~~~
 
+# Examples
+
+This section illustrates how equivalent YANG state data represented using different serialization formats can produce the same normalized representation.
+
+## XML and JSON Representations
+
+The following XML and JSON representations convey
+equivalent information.
+
+~~~ xml
+<interface>
+  <name>eth0</name>
+  <enabled>true</enabled>
+</interface>
+~~~
+
+~~~ json
+{
+  "interface": {
+    "name": "eth0",
+    "enabled": true
+  }
+}
+~~~
+
+After applying the normalization procedure, both representations produce the same normalized form.
+
+~~~ text
+interface
+ ├─ enabled = true
+ └─ name = eth0
+~~~
+
+# Limitations
+
+This version intentionally focuses on schema-independent normalization.
+
+The following aspects are outside the scope of this version:
+
+* ordered-by-user semantics;
+
+* default value handling;
+
+* identityref resolution;
+
+* leafref resolution;
+
+* full semantic equivalence of YANG datastore states.
+
+Future versions may define schema-aware normalization profiles that address these aspects.
+
 # Security Considerations {#security}
 
-TODO Security
+# Security Considerations
+
+The normalization procedure defined in this document is intended to provide a deterministic representation of YANG state data. It does not, by itself, provide integrity, authenticity, confidentiality, or provenance guarantees.
+
+Security properties may be obtained by applying appropriate mechanisms, such as cryptographic hash functions, digital signatures, or provenance procedures, to the resulting normalized representation.
+Implementations relying on the normalized representation for integrity verification or provenance applications MUST use cryptographically secure algorithms appropriate for the intended use case.
+Incorrect normalization procedures may result in different representations producing the same normalized output or in equivalent information producing different normalized representations. Such situations may negatively affect comparison, fingerprint generation, and verification procedures.
+This version assumes that sibling ordering is not semantically significant. Applying the procedure to data where ordering carries semantic meaning may produce incorrect equivalence results.
 
 
 # IANA Considerations {#iana}
@@ -247,4 +301,4 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+This document is based on work partially funded by the EU Horizon Europe projects CYBERNEMO (grant 101168182) and 3C4AI (grant 101298630).

@@ -173,11 +173,8 @@ The absence of a representation-independent form of YANG state data affects seve
 * **Datastore State Comparison:**  Network management systems frequently compare datastore snapshots obtained from different devices, controllers, or processing stages. Equivalent YANG state data represented through different serialization formats or ordering conventions may appear different when compared directly, despite conveying the same information.
 
 * **Message Broker Applications:** YANG-modeled information is increasingly exchanged through message broker infrastructures and data distribution systems. Stable identification of equivalent information can support operations such as message deduplication, topic compaction, change detection, and content synchronization.
-
 * **Data Synchronization and Replication:** Operational environments frequently exchange YANG state data between multiple systems. A deterministic normalized representation can simplify state comparison, synchronization procedures, and consistency verification across distributed environments.
-
 * **Data Deduplication:** Storage and processing systems may benefit from the ability to identify equivalent information independently of the original representation. A normalized representation provides a stable basis for content identification and deduplication.
-  
 * **Provenance and Integrity Verification:** Where stable and deterministic representations are required to generate reproducible fingerprints, hashes, and signatures, such as the previous use cases mentioned.
 
 # Normalization Procedure

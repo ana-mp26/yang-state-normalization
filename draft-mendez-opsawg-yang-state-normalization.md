@@ -42,9 +42,7 @@ informative:
  RFC8949:
   title: Concise Binary Object Representation (CBOR)
  I-D.ietf-opsawg-yang-provenance:
-  target: https://datatracker.ietf.org/doc/draft-ietf-opsawg-yang-provenance/
  I-D.ietf-nmop-yang-message-broker-message-key:
-  target: https://datatracker.ietf.org/doc/draft-ietf-nmop-yang-message-broker-message-key/
 
 ...
 

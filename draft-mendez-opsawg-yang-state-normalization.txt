@@ -5,9 +5,9 @@
 Operations and Management Area Working Group                   A. Méndez
 Internet-Draft                                                  D. López
 Intended status: Standards Track                              Telefonica
-Expires: 8 March 2027                                        J. Lindblad
+Expires: 18 March 2027                                       J. Lindblad
                                                              All For Eco
-                                                        4 September 2026
+                                                       14 September 2026
 
 
               Normalized Representation of YANG State Data
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 March 2027.
+   This Internet-Draft will expire on 18 March 2027.
 
 Copyright Notice
 
@@ -243,6 +243,44 @@ Table of Contents
    YANG state data.
 
 3.2.  Ordering Differences
+
+   Equivalent YANG state data may be serialized using different ordering
+   conventions.
+
+   In many operational scenarios, sibling ordering does not carry
+   semantic meaning and may vary between implementations, datastore
+   realizations, or serialization processes.
+
+   For example, one implementation may produce:
+
+   <aaa>
+     <bbb/>
+     <ccc/>
+     <ddd/>
+   </aaa>
+
+   while another implementation may produce:
+
+   <aaa>
+     <ddd/>
+     <bbb/>
+     <ccc/>
+   </aaa>
+
+   Although both representations may convey the same information, they
+   result in different serialized structures and therefore different
+   hashes, fingerprints, or signatures.
+
+   Such variations may arise from implementation-specific ordering
+   choices, internal datastore representations, module augmentations, or
+   serialization procedures.
+
+   A representation-level comparison is therefore insufficient to
+   determine equivalence of the information being conveyed.
+
+   A normalization procedure should eliminate non-semantic ordering
+   differences and produce identical normalized representations for
+   equivalent information.
 
 3.3.  Operational Use Cases
 

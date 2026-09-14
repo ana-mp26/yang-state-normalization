@@ -133,6 +133,39 @@ A normalization procedure operating above the serialization layer is therefore r
 
 ## Ordering Differences
 
+
+Equivalent YANG state data may be serialized using different ordering conventions.
+
+In many operational scenarios, sibling ordering does not carry semantic meaning and may vary between implementations, datastore realizations, or serialization processes.
+
+For example, one implementation may produce:
+
+~~~ xml
+<aaa>
+  <bbb/>
+  <ccc/>
+  <ddd/>
+</aaa>
+~~~
+
+while another implementation may produce:
+
+~~~ xml
+<aaa>
+  <ddd/>
+  <bbb/>
+  <ccc/>
+</aaa>
+~~~
+
+Although both representations may convey the same information, they result in different serialized structures and therefore different hashes, fingerprints, or signatures.
+
+Such variations may arise from implementation-specific ordering choices, internal datastore representations, module augmentations, or serialization procedures.
+
+A representation-level comparison is therefore insufficient to determine equivalence of the information being conveyed.
+
+A normalization procedure should eliminate non-semantic ordering differences and produce identical normalized representations for equivalent information.
+
 ## Operational Use Cases
 
 

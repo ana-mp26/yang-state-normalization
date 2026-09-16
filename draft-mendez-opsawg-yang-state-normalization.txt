@@ -5,9 +5,9 @@
 Operations and Management Area Working Group                   A. Méndez
 Internet-Draft                                                  D. López
 Intended status: Standards Track                              Telefonica
-Expires: 18 March 2027                                       J. Lindblad
+Expires: 20 March 2027                                       J. Lindblad
                                                              All For Eco
-                                                       14 September 2026
+                                                       16 September 2026
 
 
               Normalized Representation of YANG State Data
@@ -16,7 +16,7 @@ Expires: 18 March 2027                                       J. Lindblad
 Abstract
 
    This document defines a normalization procedure for YANG state data.
-   The procedure enables tructurally equivalent YANG state data to
+   The procedure enables structurally equivalent YANG state data to
    produce equivalent normalized representations independently of the
    serialization format and applicable representation conventions.  The
    normalized representation is intended to support comparison, hashing,
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 March 2027.
+   This Internet-Draft will expire on 20 March 2027.
 
 Copyright Notice
 

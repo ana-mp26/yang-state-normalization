@@ -48,7 +48,7 @@ informative:
 
 --- abstract
 
-This document defines a normalization procedure for YANG state data. The procedure enables tructurally equivalent YANG state data to produce equivalent normalized representations independently of the serialization format and applicable representation conventions. The normalized representation is intended to support comparison, hashing, integrity verification, provenance, and other procedures that require stable identification of equivalent YANG state data. This version defines a schema-independent normalization profile and assumes that sibling ordering is not semantically significant.
+This document defines a normalization procedure for YANG state data. The procedure enables structurally equivalent YANG state data to produce equivalent normalized representations independently of the serialization format and applicable representation conventions. The normalized representation is intended to support comparison, hashing, integrity verification, provenance, and other procedures that require stable identification of equivalent YANG state data. This version defines a schema-independent normalization profile and assumes that sibling ordering is not semantically significant.
 
 
 --- middle

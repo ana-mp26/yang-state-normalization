@@ -181,6 +181,8 @@ The normalization procedure operates on YANG state data independently of its ori
 
 The procedure transforms XML, JSON, or CBOR representations into a common normalized representation through a recursive processing algorithm.
 
+The normalization procedure conceptually constructs a schema-independent abstract tree representation of the datastore contents. This intermediate representation captures node identifiers, values, and hierarchical relationships independently of the original serialization format. An implementation may realize this representation as an Abstract Syntax Tree (AST) or any equivalent in-memory data structure.
+
 At a high level, the procedure consists of:
 
 1. Parsing the input representation.
@@ -207,7 +209,7 @@ CBOR ----/
               |
               v
 
-    Common Representation
+    Abstract Tree Representation
 
               |
               v

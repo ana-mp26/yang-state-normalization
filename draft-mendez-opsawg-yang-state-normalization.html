@@ -11,25 +11,25 @@
 <meta content="
        This document defines a normalization procedure for YANG state data. The procedure enables structurally equivalent YANG state data to produce equivalent normalized representations independently of the serialization format and applicable representation conventions. The normalized representation is intended to support comparison, hashing, integrity verification, provenance, and other procedures that require stable identification of equivalent YANG state data. This version defines a schema-independent normalization profile and assumes that sibling ordering is not semantically significant. 
     " name="description">
-<meta content="xml2rfc 3.34.0" name="generator">
+<meta content="xml2rfc 3.34.1" name="generator">
 <meta content="normalization" name="keyword">
 <meta content="datastore" name="keyword">
 <meta content="semantic representation" name="keyword">
 <meta content="draft-mendez-opsawg-yang-state-normalization-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.34.0
+  xml2rfc 3.34.1
     Python 3.14.7
-    ConfigArgParse 1.7.5
+    ConfigArgParse 1.7.7
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.11.7
+    platformdirs 4.11.10
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.8.3
+    wcwidth 0.8.4
 -->
 <link href="draft-mendez-opsawg-yang-state-normalization.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1049,7 +1049,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Méndez, et al.</td>
-<td class="center">Expires 20 March 2027</td>
+<td class="center">Expires 22 March 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1062,12 @@ svg {
 <dd class="internet-draft">draft-mendez-opsawg-yang-state-normalization-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-09-16" class="published">16 September 2026</time>
+<time datetime="2026-09-18" class="published">18 September 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-03-20">20 March 2027</time></dd>
+<dd class="expires"><time datetime="2027-03-22">22 March 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1125,7 +1125,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1378,29 +1378,30 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       </h2>
 <p id="section-4-1">The normalization procedure operates on YANG state data independently of its original serialization format.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">The procedure transforms XML, JSON, or CBOR representations into a common normalized representation through a recursive processing algorithm.<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3">At a high level, the procedure consists of:<a href="#section-4-3" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-4-4">
-<li id="section-4-4.1">
-          <p id="section-4-4.1.1">Parsing the input representation.<a href="#section-4-4.1.1" class="pilcrow">¶</a></p>
+<p id="section-4-3">The normalization procedure conceptually constructs a schema-independent abstract tree representation of the datastore contents. This intermediate representation captures node identifiers, values, and hierarchical relationships independently of the original serialization format. An implementation may realize this representation as an Abstract Syntax Tree (AST) or any equivalent in-memory data structure.<a href="#section-4-3" class="pilcrow">¶</a></p>
+<p id="section-4-4">At a high level, the procedure consists of:<a href="#section-4-4" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-4-5">
+<li id="section-4-5.1">
+          <p id="section-4-5.1.1">Parsing the input representation.<a href="#section-4-5.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-4-4.2">
-          <p id="section-4-4.2.1">Constructing an internal hierarchical representation composed of node identifiers, values, and descendants.<a href="#section-4-4.2.1" class="pilcrow">¶</a></p>
+        <li id="section-4-5.2">
+          <p id="section-4-5.2.1">Constructing an internal hierarchical representation composed of node identifiers, values, and descendants.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-4-4.3">
-          <p id="section-4-4.3.1">Normalizing identifiers and values.<a href="#section-4-4.3.1" class="pilcrow">¶</a></p>
+        <li id="section-4-5.3">
+          <p id="section-4-5.3.1">Normalizing identifiers and values.<a href="#section-4-5.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-4-4.4">
-          <p id="section-4-4.4.1">Recursively normalizing descendant nodes.<a href="#section-4-4.4.1" class="pilcrow">¶</a></p>
+        <li id="section-4-5.4">
+          <p id="section-4-5.4.1">Recursively normalizing descendant nodes.<a href="#section-4-5.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-4-4.5">
-          <p id="section-4-4.5.1">Eliminating non-semantic ordering differences.<a href="#section-4-4.5.1" class="pilcrow">¶</a></p>
+        <li id="section-4-5.5">
+          <p id="section-4-5.5.1">Eliminating non-semantic ordering differences.<a href="#section-4-5.5.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-4-4.6">
-          <p id="section-4-4.6.1">Generating a deterministic normalized representation.<a href="#section-4-4.6.1" class="pilcrow">¶</a></p>
+        <li id="section-4-5.6">
+          <p id="section-4-5.6.1">Generating a deterministic normalized representation.<a href="#section-4-5.6.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
-<p id="section-4-5">The same YANG state information <span class="bcp14">SHOULD</span> produce the same normalized representation regardless of the original serialization format.<a href="#section-4-5" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4-6">
+<p id="section-4-6">The same YANG state information <span class="bcp14">SHOULD</span> produce the same normalized representation regardless of the original serialization format.<a href="#section-4-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4-7">
 <pre>
 XML  ----\
           \
@@ -1411,7 +1412,7 @@ CBOR ----/
               |
               v
 
-    Common Representation
+    Abstract Tree Representation
 
               |
               v
@@ -1432,7 +1433,7 @@ CBOR ----/
               v
 
  Comparison / Fingerprinting
-</pre><a href="#section-4-6" class="pilcrow">¶</a>
+</pre><a href="#section-4-7" class="pilcrow">¶</a>
 </div>
 </section>
 </div>

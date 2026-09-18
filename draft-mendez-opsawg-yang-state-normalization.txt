@@ -5,9 +5,9 @@
 Operations and Management Area Working Group                   A. Méndez
 Internet-Draft                                                  D. López
 Intended status: Standards Track                              Telefonica
-Expires: 20 March 2027                                       J. Lindblad
+Expires: 22 March 2027                                       J. Lindblad
                                                              All For Eco
-                                                       16 September 2026
+                                                       18 September 2026
 
 
               Normalized Representation of YANG State Data
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 March 2027.
+   This Internet-Draft will expire on 22 March 2027.
 
 Copyright Notice
 
@@ -330,6 +330,14 @@ Table of Contents
    common normalized representation through a recursive processing
    algorithm.
 
+   The normalization procedure conceptually constructs a schema-
+   independent abstract tree representation of the datastore contents.
+   This intermediate representation captures node identifiers, values,
+   and hierarchical relationships independently of the original
+   serialization format.  An implementation may realize this
+   representation as an Abstract Syntax Tree (AST) or any equivalent in-
+   memory data structure.
+
    At a high level, the procedure consists of:
 
    1.  Parsing the input representation.
@@ -357,7 +365,7 @@ Table of Contents
                  |
                  v
 
-       Common Representation
+       Abstract Tree Representation
 
                  |
                  v
